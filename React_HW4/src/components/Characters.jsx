@@ -34,11 +34,11 @@ export default function Characters() {
     try {
       // Encode Potter DB's bracketed filter parameters for the request URL.
       const params = new URLSearchParams({
-        "filter[name_cont]": name,
-        "page[size]": "10",
+        "filter[name_cont]": name, // Filter by name containing search term
+        "page[size]": "10", // Limit results to 10
       });
       const response = await fetch(
-        `https://api.potterdb.com/v1/characters?${params.toString()}`,
+        `https://api.potterdb.com/v1/characters?${params.toString()}`, // 
       );
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
@@ -74,7 +74,7 @@ export default function Characters() {
           />
         </Form.Group>
         <Button type="submit" disabled={loading}>
-          {loading ? (
+          {loading ? ( // Show spinner while loading
             <>
               <Spinner size="sm" className="me-2" aria-hidden="true" />
               Searching...
@@ -94,13 +94,13 @@ export default function Characters() {
         </Button>
       </Form>
       {error && <Alert variant="danger">{error}</Alert>}
-      {hasSearched && characters.length === 0 && (
+      {hasSearched && characters.length === 0 && ( // Show message if no results
         <Alert variant="info">
           No characters found matching “{searchTerm.trim()}”.
         </Alert>
       )}
 
-      {characters.length > 0 && (
+      {characters.length > 0 && ( // Show results if any characters found
         <section aria-labelledby="character-results-heading">
           <h2 id="character-results-heading" className="h4">
             Search results
@@ -120,7 +120,7 @@ export default function Characters() {
         </section>
       )}
 
-      {attributes && (
+      {attributes && ( // Show character details
         <Card className="mt-4">
           {attributes.image && (
             <Card.Img

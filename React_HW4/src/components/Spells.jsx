@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Alert, Button, Card, Form, ListGroup, Spinner } from "react-bootstrap";
 
 function Spells() {
+  // UseState constants
   const [searchTerm, setSearchTerm] = useState("");
   const [spells, setSpells] = useState([]);
   const [selectedSpell, setSelectedSpell] = useState(null);
@@ -9,6 +10,7 @@ function Spells() {
   const [hasSearched, setHasSearched] = useState(false);
   const [error, setError] = useState("");
 
+  // Handle the clear button
   function clearSearch() {
     setSearchTerm("");
     setSpells([]);

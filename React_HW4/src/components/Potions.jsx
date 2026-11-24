@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Alert, Button, Card, Form, ListGroup, Spinner } from "react-bootstrap";
 
 export default function Potions() {
+  // UseState constants
   const [searchTerm, setSearchTerm] = useState("");
   const [potions, setPotions] = useState([]);
   const [selectedPotion, setSelectedPotion] = useState(null);
@@ -9,6 +10,7 @@ export default function Potions() {
   const [hasSearched, setHasSearched] = useState(false);
   const [error, setError] = useState("");
 
+  // Handle the clear button
   function clearSearch() {
     setSearchTerm("");
     setPotions([]);
